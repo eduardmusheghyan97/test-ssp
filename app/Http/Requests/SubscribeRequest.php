@@ -27,6 +27,7 @@ class SubscribeRequest extends FormRequest
         return [
             'subscriber_id' => 'required',
             'website_id' => 'required'
+
         ];
     }
 
@@ -40,7 +41,7 @@ class SubscribeRequest extends FormRequest
     {
         if($validator->fails()) {
             $validator->after(function ($validator) {
-                dd($validator->errors()->getMessages());
+                return response()->json(['message' =>$validator->errors()->getMessages()], 401);
             });
         }
     }

@@ -26,7 +26,10 @@ class CreatePostRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'description' => 'required'
+            'description' => 'required',
+            'website_id' => 'required|integer',
+            'notified' => 'required|boolean',
+            'notified_subscribers_count' => 'integer'
         ];
     }
 
@@ -40,7 +43,7 @@ class CreatePostRequest extends FormRequest
     {
         if($validator->fails()) {
             $validator->after(function ($validator) {
-                dd($validator->errors()->getMessages());
+                return response()->json(['message' =>$validator->errors()->getMessages()], 401);
             });
         }
     }

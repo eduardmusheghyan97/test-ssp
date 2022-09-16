@@ -17,27 +17,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-
 //        App\Models\User::factory(10)->create();
         Website::factory(10)->create();
-
-//        $now = (string)now();
-//        while(true) {
-//            $array = [];
-//            $j = 0;
-//                for ($i=0; $i<1000; $i++) {
-//                    $j++;
-//                    $array[] = [
-//                        'website_id' => $j,
-//                        'title' => 'tease',
-//                        'description' => 'tease',
-//                        'notified' => 0,
-//                        'created_at' => $now,
-//                        'updated_at' => $now
-//                    ];
-//                }
-//                DB::table('posts')->insert($array);
-//
-//        }
     }
 }

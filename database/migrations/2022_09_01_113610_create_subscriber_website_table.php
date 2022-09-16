@@ -15,8 +15,9 @@ class CreateSubscriberWebsiteTable extends Migration
     {
         Schema::create('subscriber_website', function (Blueprint $table) {
             $table->id();
-            $table->integer('subscriber_id');
-            $table->integer('website_id');
+            $table->foreignId('subscriber_id')->constrained('subscribers')->onDelete('cascade');
+            $table->foreignId('website_id')->constrained('websites')->onDelete('cascade');
+            $table->unique(['subscriber_id', 'website_id']);
         });
     }
 

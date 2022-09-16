@@ -17,8 +17,9 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('description')->nullable();
-            $table->integer('website_id');
+            $table->foreignId('website_id')->constrained('websites')->onDelete('cascade');
             $table->boolean('notified');
+            $table->integer('notified_subscribers_count')->default(0);
             $table->timestamps();
         });
     }

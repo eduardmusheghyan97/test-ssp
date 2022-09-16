@@ -40,7 +40,7 @@ class CreateSubscriberRequest extends FormRequest
     {
         if($validator->fails()) {
             $validator->after(function ($validator) {
-                dd($validator->errors()->getMessages());
+                return response()->json(['message' =>$validator->errors()->getMessages()], 401);
             });
         }
     }

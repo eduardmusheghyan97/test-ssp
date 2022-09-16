@@ -25,7 +25,7 @@ Route::prefix('subscriber')
         Route::post('/create', [SubscriberController::class, 'create'])->name('create');
         Route::post('/subscribe', [SubscriberController::class, 'subscribe'])->name('subscribe');
     });
-Route::prefix('website/{websiteID}')
+Route::prefix('website')
     ->name('website.')
     ->group(function () {
         Route::post('/post/create', [PostController::class, 'create'])->name('post.create');

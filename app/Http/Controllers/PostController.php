@@ -4,13 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreatePostRequest;
 use App\Models\Post;
-use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    public function create(CreatePostRequest $request, $websiteID)
+    public function create(CreatePostRequest $request)
     {
-        Post::create($request, $websiteID);
-        return 'Post successfully created!';
+        Post::create($request->all());
+        return response()->json(['message' => 'Post successfully created!'],200);
     }
 }

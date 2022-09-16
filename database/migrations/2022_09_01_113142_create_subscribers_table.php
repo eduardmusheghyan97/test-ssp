@@ -16,7 +16,6 @@ class CreateSubscribersTable extends Migration
         Schema::create('subscribers', function (Blueprint $table) {
             $table->id();
             $table->string('email')->unique();
-            $table->boolean('notified');
             $table->timestamps();
         });
     }
